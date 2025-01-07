@@ -1,0 +1,16 @@
+---
+- name: Install Apache
+  apt:
+    name: apache2
+    state: present
+
+- name: Start and Enable Apache
+  service:
+    name: apache2
+    state: started
+    enabled: yes
+
+- name: Deploy Custom HTML File
+  template:
+    src: index.html
+    dest: /var/www/html/index.html
